@@ -1,0 +1,63 @@
+$DangerBorder: rgb(177, 39, 39);
+$DangerBg: rgb(58, 0, 0);
+$DangerTextColor:rgb(193, 104, 104);
+
+$NoteBorderColor: rgb(42, 12, 103);
+$NoteBg: rgb(16, 0, 58);
+$NoteTextColor:rgb(85, 63, 163);
+
+$InfoBorderColor: rgb(70, 70, 70);
+$InfoBg: rgb(55, 55, 55);
+$InfoTextColor:rgb(138, 138, 138);
+
+$SuccessBorderColor: rgb(11, 86, 25);
+$SuccessBg: rgb(4, 42, 3);
+$SuccessTextColor:rgb(63, 117, 67);
+
+$WarningBorderColor: rgb(58, 52, 3);
+$WarningBg: rgb(50, 58, 0);
+$WarningTextColor:rgb(175, 185, 93);
+
+
+
+@mixin AlertTheme($name , $borderColor, $AlertBg, $AlertTextColor)
+{
+  .#{$name} {
+    border: 1px dotted $borderColor;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: $AlertBg;
+    margin: 20px;
+    
+    .Alert-Header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  
+      .Alert-title {
+        display: flex;
+        align-items: center;
+        color: $AlertTextColor;
+  
+        .Alert-h1 {
+          padding-left: 10px;
+        }
+      }
+      svg
+      {
+        color: $AlertTextColor;
+      }
+    }
+    p
+    {
+      color: $AlertTextColor;
+    }
+  }
+  
+}
+
+@include AlertTheme('Alert-Danger' , $DangerBorder , $DangerBg , $DangerTextColor);
+@include AlertTheme('Alert-info' , $InfoBorderColor , $InfoBg , $InfoTextColor);
+@include AlertTheme('Alert-warning' , $WarningBorderColor , $WarningBg , $WarningTextColor);
+@include AlertTheme('Alert-note' , $NoteBorderColor , $NoteBg , $NoteTextColor);
+@include AlertTheme('Alert-success' , $SuccessBorderColor , $SuccessBg , $SuccessTextColor);
